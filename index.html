@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,37 +7,29 @@
     <style>
         body{
              background:bisque;
-        
         }
         .d1{
             background:url(imgs/photo_2025-11-25_15-10-34.jpg);
-            width: 250;
+            width: 100%;
             background-repeat: no-repeat;
             border-radius: 25px;
             height: 250px;
             margin-top: 0%;
             padding-top:5%;
-            background-size: 100%;}
+            background-size: cover;
+            background-position: center;}
 
         a:link{
             text-decoration: none;
-            
-            
         }
         .d2{
             background:transparent ;
             padding-top: 15px;
             padding-left: 150px;
-            
             font-size: 30px;
             width: 100%;
             height: 10%;
-            
         }
-        .d3{
-            color:transparent;
-        }
-        
          button{
             opacity: 0.5;
             border-radius: 12px;
@@ -51,26 +43,28 @@
         p{
             color: rgb(79, 78, 78);
         }
-    
+        #datetime{
+            color: white;
+            font-size: 20px;
+            padding-left: 20px;
+            padding-top: 30px;
+        }
+        #themeButton{
+            padding: 12px 25px;
+            font-size: large;
+            border-radius: 15px;
+            cursor: pointer;
+            margin: 20px auto;
+            display: block;
+        }
     </style>     
-     
-     <script>
-function updateDateTime() {
-    const now = new Date();
-    document.getElementById("datetime").innerHTML = 
-        now.toLocaleString(); 
-}
-
-setInterval(updateDateTime, 1000); 
-updateDateTime();
-</script>
 </head>
 <body>
 
     <div class="d1">
         <h1 style="color:white; text-align: center;font-size: 400% ; text-decoration:underline;" > <b>Coffee</b></h1> 
-       <h3><div id="datetime" style="color:white;padding-left:20px;padding-top:50px;"></div></h3>
-       </div>
+        <div id="datetime"></div>
+    </div>
 
     <div class="d2">
     <nav>
@@ -79,6 +73,11 @@ updateDateTime();
        <button style="border: 3px solid white ;background-color: transparent; font-size:xx-large;"> <a href="colddrink.html"  style="color:rgb(71, 70, 70);">Cold Drinks</a></button> 
     </nav>
     </div>
+
+    <div style="text-align: center;">
+        <button id="themeButton">🌙 Dark Mode</button>
+    </div>
+
     <div>
         <h2 style="color:rgb(79, 78, 78); text-decoration: underline ;">
           <ul> 
@@ -97,14 +96,35 @@ updateDateTime();
                 </li>
             </ul>
          </h2>
-       <p> It reveals who might have used it as a stimulant or even known about it before the 17th century. The earliest reliable evidence of either coffee drinking or knowledge of the coffee tree appears in the mid-15th century.Coffee originated in Sufi monasteries in Yemen, in the southern Arabian Peninsula.It spread from Ethiopia to Yemen, Egypt, and the Arabian Peninsula By the 15th century, it had reached Armenia, Persia, Turkey, and North Africa. Coffee spread from the Islamic world to Italy, then to the rest of Europe, Indonesia, and the Americas.</p></li>
+       <p> It reveals who might have used it as a stimulant or even known about it before the 17th century. The earliest reliable evidence of either coffee drinking or knowledge of the coffee tree appears in the mid-15th century.Coffee originated in Sufi monasteries in Yemen, in the southern Arabian Peninsula.It spread from Ethiopia to Yemen, Egypt, and the Arabian Peninsula By the 15th century, it had reached Armenia, Persia, Turkey, and North Africa. Coffee spread from the Islamic world to Italy, then to the rest of Europe, Indonesia, and the Americas.</p>
         <p>Coffee fruits, which contain coffee beans, are produced by several species of evergreen shrubs belonging to the coffee tree. The two most common species are Coffea canephora (also known as Coffea robusta) and Coffea arabica; the less common species are Liberica, Excelsa, Stenophylla, Mauritiana, and Racemosa Coffee beans are primarily grown in Latin America, Southeast Asia, and Africa. Once ripe, the beans are harvested, processed, and dried. They are then roasted, undergoing several physical and chemical changes. The roasting process varies depending on the desired flavor. Finally, the beans are ground and brewed to make coffee, which can be prepared and served in a variety of ways.</p>
+    </div>
 
-        
-        </div>
-    
+    <script>
+        function updateDateTime() {
+            const now = new Date();
+            document.getElementById("datetime").innerHTML = 
+                now.toLocaleString(); 
+        }
 
+        setInterval(updateDateTime, 1000); 
+        updateDateTime();
+
+        const themeButton = document.getElementById('themeButton');
+        let isDark = false;
+
+        themeButton.addEventListener('click', function() {
+            if (isDark) {
+                document.body.style.background = 'bisque';
+                themeButton.textContent = '🌙 Dark Mode';
+                isDark = false;
+            } else {
+                document.body.style.background = '#2c1810';
+                themeButton.textContent = '☀️ Light Mode';
+                isDark = true;
+            }
+        });
+    </script>
+
+</body>
 </html>
-
-
-
